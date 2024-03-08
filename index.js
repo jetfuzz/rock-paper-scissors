@@ -1,15 +1,15 @@
-//Create function for computer to generate rock, paper or scissors randomly
+//Create function for computer to generate rock, paper or scissors
 
-let choices = ["rock", "paper", "scissors"];
+const choices = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
-    let randomChoice = Math.floor(Math.random()*choices.length);
-    return randomChoice;
+    let randomChoice = choices[Math.floor(Math.random()*3)];
+    return "Computer plays " + randomChoice;
 }
 
 console.log(getComputerChoice());
 
-//Create function for user input to choose rock, paper or scissors
+//Create function for user input
 
 function getUserChoice() {
     let userChoice = prompt("Choose rock, paper or scissors:");
