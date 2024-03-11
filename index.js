@@ -47,21 +47,10 @@ function playRound() {
 //Display a winner after five rounds
 
 function playGame() {
+    for (let i = 1; i < 6; i++) {
     console.log (playRound());
     console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-
-    console.log (playRound());
-    console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-
-    console.log (playRound());
-    console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-
-    console.log (playRound());
-    console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-
-    console.log (playRound());
-    console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-
+    }
     gameEnd();
 }
 
