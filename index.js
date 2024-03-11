@@ -17,18 +17,10 @@ function playRound() {
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore += 1
         return "You lose! Paper beats rock";
-    } else if (playerSelection === "rock" && computerSelection === "rock") {
-        computerScore += 1
-        playerScore += 1
-        return "It's a tie! Both players choose rock";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore += 1
         return "You win! Rock beats scissors";
 
-    } else if (playerSelection === "paper" && computerSelection === "paper") {
-        computerScore += 1
-        playerScore += 1
-        return "It's a tie! both players choose paper";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore += 1
         return "You win! Paper beats rock";
@@ -42,11 +34,10 @@ function playRound() {
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore += 1
         return "You lose! Rock beats scissors";
-    } else if (playerSelection === "scissors" && computerSelection === "scissors") {
+    } else if (playerSelection === computerSelection) {
         computerScore += 1
         playerScore += 1
-        return "It's a tie! Both players choose scissors";
-
+        return `It's a tie! Both players choose ${playerSelection}`;
     } else return "Invalid entry, please type either rock, paper, or scissors";
 
 }
@@ -70,7 +61,7 @@ function playGame() {
 
     console.log (playRound());
     console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-    
+
     gameEnd();
 }
 
