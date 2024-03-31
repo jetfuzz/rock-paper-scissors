@@ -8,9 +8,6 @@ function playRound(playerSelection) {
 
     let computerSelection = choices[Math.floor(Math.random()*3)];
 
-    console.log("Player chooses " + playerSelection);
-    console.log("Computer chooses " + computerSelection);
-
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore += 1
         return "You lose! Paper beats rock";
@@ -41,16 +38,18 @@ function playRound(playerSelection) {
 }
 
 function playGame(playerSelection) {
-    result.textContent = (playRound(playerSelection)) + (" The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-    //gameEnd();
+    roundResult.textContent = (playRound(playerSelection)) + " The score is now " + playerScore + " for player and " + computerScore + " for the computer";
+    if (playerScore === 5 || computerScore === 5) {
+        return gameEnd();
+    }
 }
 
 function gameEnd() {
     if (computerScore > playerScore) {
-        console.log("The computer wins!")
+        gameResult.textContent = "Game Over! The computer wins!"
     } else if (playerScore > computerScore) {
-        console.log("You win!")
-    } else console.log("Game is a tie!")
+        gameResult.textContent = "You win!"
+    } else gameResult.textContent = "Game is a tie!"
     }
 
 //Add event listener to buttons that:
@@ -75,5 +74,8 @@ scissorsBtn.addEventListener("click", () => {
 
 //Add a div for displaying results
 
-const result = document.createElement("div");
-container.appendChild(result);
+const roundResult = document.createElement("div");
+const gameResult = document.createElement("div");
+
+container.appendChild(roundResult);
+container.appendChild(gameResult);
