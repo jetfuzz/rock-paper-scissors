@@ -2,7 +2,7 @@ const choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
 
-//Create function for playing one round of game
+let userChoice = "";
 
 function playRound(playerSelection) {
 
@@ -41,9 +41,8 @@ function playRound(playerSelection) {
 }
 
 function playGame(playerSelection) {
-    console.log (playRound(playerSelection));
-    console.log("The score is now " + playerScore + " for player and " + computerScore + " for the computer");
-    gameEnd();
+    result.textContent = (playRound(playerSelection)) + (" The score is now " + playerScore + " for player and " + computerScore + " for the computer");
+    //gameEnd();
 }
 
 function gameEnd() {
@@ -62,11 +61,19 @@ const paperBtn = document.getElementById("paperBtn");
 const scissorsBtn = document.getElementById("scissorsBtn");
 
 rockBtn.addEventListener("click", () => {
-    playGame("rock");
+    userChoice = "rock";
+    playGame(userChoice);
 });
 paperBtn.addEventListener("click", () => {
-    playGame("paper");
+    userChoice = "paper";
+    playGame(userChoice);
 });
 scissorsBtn.addEventListener("click", () => {
-    playGame("scissors");
+    userChoice = "scissors";
+    playGame(userChoice);
 });
+
+//Add a div for displaying results
+
+const result = document.createElement("div");
+container.appendChild(result);
