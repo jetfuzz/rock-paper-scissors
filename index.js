@@ -1,7 +1,6 @@
 const choices = ["rock", "paper", "scissors"];
 let playerScore = 0;
 let computerScore = 0;
-
 let userChoice = "";
 
 function playRound(playerSelection) {
@@ -45,15 +44,17 @@ function playGame(playerSelection) {
 }
 
 function gameEnd() {
+    document.getElementById("rockBtn").disabled = true;
+    document.getElementById("paperBtn").disabled = true;
+    document.getElementById("scissorsBtn").disabled = true;
     if (computerScore > playerScore) {
-        gameResult.textContent = "Game Over! The computer wins!"
+        gameResult.textContent = "Game Over! Computer wins!"
     } else if (playerScore > computerScore) {
-        gameResult.textContent = "You win!"
-    } else gameResult.textContent = "Game is a tie!"
+        gameResult.textContent = "Game Over! You win!"
+    } else gameResult.textContent = "Game Over! It's a tie!"
     }
 
-//Add event listener to buttons that:
-//Calls playRound function with correct playerSelection when clicked
+//Add event listener to buttons that calls playRound function with correct playerSelection when clicked
 
 const rockBtn = document.getElementById("rockBtn");
 const paperBtn = document.getElementById("paperBtn");
