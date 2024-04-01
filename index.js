@@ -30,7 +30,7 @@ function playRound(playerSelection) {
     } else if (playerSelection === computerSelection) {
         return `It's a tie! Both players choose ${playerSelection}.`;
     } 
-}
+};
 
 function playGame(playerSelection) {
     roundResult.style.visibility = "visible";
@@ -38,7 +38,7 @@ function playGame(playerSelection) {
     if (playerScore === 5 || computerScore === 5) {
         return gameEnd();
     }
-}
+};
 
 function gameEnd() {
     document.getElementById("rockBtn").disabled = true;
@@ -46,14 +46,14 @@ function gameEnd() {
     document.getElementById("scissorsBtn").disabled = true;
     gameResult.style.visibility = "visible";
     if (computerScore > playerScore) {
-        gameResult.textContent = "Game Over! Computer wins!";
+        gameResult.textContent = "Game Over! Computer Wins!";
         goAgain();
     } else if (playerScore > computerScore) {
-        gameResult.textContent = "Game Over! You win!";
+        gameResult.textContent = "Game Over! You Win!";
         goAgain();
     } else gameResult.textContent = "Game Over! It's a tie!";
     goAgain();
-    }
+    };
 
 document.getElementById("playAgain").style.visibility = "hidden";
 
