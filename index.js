@@ -28,9 +28,7 @@ function playRound(playerSelection) {
         computerScore += 1
         return "You lose! Rock beats scissors.";
     } else if (playerSelection === computerSelection) {
-        computerScore += 1
-        playerScore += 1
-        return `It's a tie! Both players choose ${playerSelection}`;
+        return `It's a tie! Both players choose ${playerSelection}.`;
     } 
 }
 
