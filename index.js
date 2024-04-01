@@ -9,34 +9,33 @@ function playRound(playerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "paper") {
         computerScore += 1
-        return "You lose! Paper beats rock";
+        return "You lose! Paper beats rock.";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore += 1
-        return "You win! Rock beats scissors";
+        return "You win! Rock beats scissors.";
 
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore += 1
-        return "You win! Paper beats rock";
+        return "You win! Paper beats rock.";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
         computerScore += 1
-        return "You lose! Scissors beats paper";
+        return "You lose! Scissors beats paper.";
 
     } else if (playerSelection === "scissors" && computerSelection === "paper") {
         playerScore += 1
-        return "You win! scissors beats paper";
+        return "You win! scissors beats paper.";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore += 1
-        return "You lose! Rock beats scissors";
-
+        return "You lose! Rock beats scissors.";
     } else if (playerSelection === computerSelection) {
         computerScore += 1
         playerScore += 1
         return `It's a tie! Both players choose ${playerSelection}`;
-    } else return "Invalid entry, please type either rock, paper, or scissors";
-
+    } 
 }
 
 function playGame(playerSelection) {
+    roundResult.style.visibility = "visible";
     roundResult.textContent = (playRound(playerSelection)) + " The score is now " + playerScore + " for player and " + computerScore + " for the computer";
     if (playerScore === 5 || computerScore === 5) {
         return gameEnd();
@@ -47,14 +46,32 @@ function gameEnd() {
     document.getElementById("rockBtn").disabled = true;
     document.getElementById("paperBtn").disabled = true;
     document.getElementById("scissorsBtn").disabled = true;
+    gameResult.style.visibility = "visible";
     if (computerScore > playerScore) {
-        gameResult.textContent = "Game Over! Computer wins!"
+        gameResult.textContent = "Game Over! Computer wins!";
+        goAgain();
     } else if (playerScore > computerScore) {
-        gameResult.textContent = "Game Over! You win!"
-    } else gameResult.textContent = "Game Over! It's a tie!"
+        gameResult.textContent = "Game Over! You win!";
+        goAgain();
+    } else gameResult.textContent = "Game Over! It's a tie!";
+    goAgain();
     }
 
-//Add event listener to buttons that calls playRound function with correct playerSelection when clicked
+document.getElementById("playAgain").style.visibility = "hidden";
+
+function goAgain() {
+    document.getElementById("playAgain").style.visibility = "visible";
+    playAgain.addEventListener("click", () => {
+        document.getElementById("rockBtn").disabled = false;
+        document.getElementById("paperBtn").disabled = false;
+        document.getElementById("scissorsBtn").disabled = false;
+        document.getElementById("playAgain").style.visibility = "hidden";
+        roundResult.style.visibility = "hidden";
+        gameResult.style.visibility = "hidden";
+        playerScore = 0;
+        computerScore = 0;
+    })
+};
 
 const rockBtn = document.getElementById("rockBtn");
 const paperBtn = document.getElementById("paperBtn");
