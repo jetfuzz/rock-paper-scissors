@@ -93,7 +93,11 @@ scissorsBtn.addEventListener("click", () => {
 //Add a div for displaying results
 
 const roundResult = document.createElement("div");
+const linebreak1 = document.createElement("br");
 const gameResult = document.createElement("div");
+const linebreak2 = document.createElement("br");
 
 container.appendChild(roundResult);
+container.appendChild(linebreak1);
 container.appendChild(gameResult);
+container.appendChild(linebreak2);
